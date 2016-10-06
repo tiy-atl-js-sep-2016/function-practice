@@ -38,8 +38,21 @@
 // Write a function called `getLength` that takes one
 // parameter (a string) and returns the length
 
+// var getLength = function (string) {
+//   return string.length;
+// };
 
+// (3 + 4) * (7 - 5)
 
+var getLength = function (string) {
+  var count = 0;
+  while (string[count] !== undefined) {
+    count += 1;
+  }
+  return count;
+};
+
+// console.log(getLength("jeremy"));
 
 // Q4
 // Write a function called `greaterThan` that takes
@@ -47,7 +60,13 @@
 // parameter is greater than the first. Otherwise
 // the function should return `false`.
 
-
+var greaterThan = function (x, y) {
+  if (y > x) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 
 // Q5
