@@ -66,7 +66,7 @@ function isVowel(char){
   }
 };
 
-function cleanerIsVowel (char) {
+ function cleanerIsVowel (char) {
   var vowels = ['a', 'e', 'i', 'o', 'u'];
   return vowels.includes(char.toLowerCase());
 };
@@ -75,10 +75,21 @@ function cleanerIsVowel (char) {
 // Write a function translate() that will translate a text into "Rovarspraket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
 
-function rovarspraket(phrase){
-    //...
+function translate (phrase) {
+  var newPhrase = "";
+  for (var count = 0; count < phrase.length; count++) {
+    var letter = phrase[count];
+//    if (!cleanerIsVowel(letter) && letter !== " ") {
+    if (cleanerIsVowel(letter) || letter === " ") {
+      newPhrase += letter;
+    } else {
+      newPhrase += letter + "o" + letter;
+    }
+  }
+  return newPhrase;
 }
 
+console.log(translate("these are some words"));
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
