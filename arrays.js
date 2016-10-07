@@ -1,3 +1,80 @@
+// The HOFs
+//  ------
+
+// forEach, [x] -> undefined
+// map,     [x] -> [newX]
+// filter,  [x] -> [x]
+// reduce,  [x] -> x
+
+var isFrontend = function (item) {
+  return instructor.teaches === "JavaScript";
+  // THIS COMMENTED OUT SECTION DOES NOT WORK
+  // if (item.material === "wood") {
+  //   return [item.title, item.price];
+  // }
+};
+
+var frontendInstructors = instructors.filter(isFrontend);
+
+// action is a callback, that's another function to run
+var myEach = function (items, action) {
+  for (var i = 0; i < items.length; i++) {
+    var currentItem = items[i];
+    action(currentItem);
+  }
+};
+
+var myMapNoEach = function (items, callback) {
+  var result = [];
+
+  for (var i = 0; i < items.length; i++) {
+    var currentItem = items[i];
+    var value = callback(currentItem);
+    result.push(result);
+  }
+
+  return result;
+};
+
+var myMap = function (items, callback) {
+  var result = [];
+  myEach(items, function (x) {
+    var value = callback(x);
+    result.push(value);
+  });
+  return result;
+};
+
+var myFilter = function (items, callback) {
+  var result = [];
+  myEach(items, function (x) {
+    if (callback(x)) {
+      result.push(x);
+    }
+  });
+  return result;
+};
+
+var doubles = [1,2,3,4,5].map(function (x) { return x * 2; });
+var evens = [1,2,3,4,5].filter(function (x) { return x % 2 === 0; });
+
+// var multiplyNums = function (nums, x) {
+//   return nums.map(function(number) { return number * x; });
+// };
+
+
+/// CHAINING EXAMPLE
+
+[1,2,3,4,5].filter(function (x) { return x % 2 === 0; });
+[1,2,3,4,5].filter(function (x) { return x % 2 === 0; }).map(function (x) { return x * x; });
+
+// that is the same as this...
+
+var evens = [1,2,3,4,5].filter(function (x) { return x % 2 === 0; });
+var squares = evens.map(function (x) { return x * x; });
+
+
+
 // ---------------------------
 // The Arrays You Will Work With
 // ---------------------------
@@ -6,7 +83,7 @@ var strings = ['this','is','a','collection','of','words'];
 var instructors = [
     { firstname : 'JD', teaches : 'JavaScript'},
     { firstname : 'Tim', teaches : 'JavaScript'},
-    { firstname : 'Brit', teaches : 'Ruby'},
+    { firstname : 'Brit', teaches : ['Ruby', 'JavaScript'] },
     { firstname : 'Joe', teaches : 'iOS'},
     { firstname : 'Jake', teaches : 'JavaScript'},
     { firstname : 'Will', teaches : 'JavaScript'},
@@ -14,7 +91,12 @@ var instructors = [
     { firstname : 'James', teaches : 'Ruby'}
 ];
 
+// instructors[instructors.length-1].teaches
 
+var instructor = instructors[x];
+var firstlang = instructor.teaches[0];
+// instructors[2].teaches[0]
+// instructors[2].teaches.toUpperCase()
 
 // ---------------------------
 // 1. Find largest number
@@ -24,8 +106,15 @@ function sortMax (nums) {
   return nums.sort()[nums.length-1];
 }
 
+// console.log("Question 1 is: ");
+// console.log(findMax(numbers));
+
+// findMax([1,4,2,6,198,7,26,1]);
+// findMax(numbers);
+
 function findMax (numbers) {
   var biggest = 0;
+
   for (var index = 0; index < numbers.length; index++) {
     var currentNum = numbers[index];
     if (currentNum > biggest) {
@@ -35,35 +124,54 @@ function findMax (numbers) {
   return biggest;
 };
 
-// console.log("Question 1 is: ");
-// console.log(findMax(numbers));
+// ---------------------------
+// 3. Find even numbers
+// ---------------------------
 
-// findMax([1,4,2,6,198,7,26,1]);
-// findMax(numbers);
+[1,2,3,4].forEach(function (x) {
+  console.log(x);
+});
+
+var findEvens = function (nums) {
+  var result = [];
+
+  each(nums, function (number) {
+    if (number % 2 === 0) {
+      result.push(number);
+    }
+  });
+
+  return result;
+};
+
+//
+// Double all the numbers in an array
+//
+
+function doubleNums (nums) {
+  var result = [];
+  nums.forEach(function (x) {
+    result.push(x * 2);
+  });
+  return result;
+}
+
+function doubleNumsFor (nums) {
+  var result = [];
+
+  for (var i = 0; i < nums.length; i++) {
+    result.push(x * 2);
+  }
+
+  return result;
+}
+
 
 // ---------------------------
 // 2. Find longest string
 // ---------------------------
 
 
-
-
-// ---------------------------
-// 3. Find even numbers
-// ---------------------------
-
-var findEvens = function (nums) {
-  var result = [];
-
-  for (var i = 0; i < nums.length; i++) {
-    var currentNum = nums[i];
-    if (currentNum % 2 !== 0) {
-      result.push(currentNum);
-    }
-  }
-
-  return result;
-};
 
 
 // ---------------------------
