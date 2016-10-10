@@ -48,11 +48,14 @@ var myMap = function (items, callback) {
 
 var myFilter = function (items, callback) {
   var result = [];
-  myEach(items, function (x) {
-    if (callback(x)) {
-      result.push(x);
+
+  for (var i = 0; i < items.length; i++) {
+    var currentItem = items[i];
+    if (callback(currentItem)) {
+      result.push(currentItem);
     }
-  });
+  }
+
   return result;
 };
 
