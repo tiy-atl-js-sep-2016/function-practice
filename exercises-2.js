@@ -36,9 +36,6 @@ function maxOfThree(x, y, z){
   return z;
 };
 
-console.log(maxOfThree(5, 3, 5));
-console.log(maxOfThree(3, 5, 5));
-console.log(maxOfThree(5, 5, 3));
 
 // ---------------------
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
@@ -89,7 +86,6 @@ function translate (phrase) {
   return newPhrase;
 }
 
-console.log(translate("these are some words"));
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".

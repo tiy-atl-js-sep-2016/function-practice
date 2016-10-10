@@ -15,7 +15,7 @@ var isFrontend = function (item) {
   // }
 };
 
-var frontendInstructors = instructors.filter(isFrontend);
+// var frontendInstructors = instructors.filter(isFrontend);
 
 // action is a callback, that's another function to run
 var myEach = function (items, action) {
