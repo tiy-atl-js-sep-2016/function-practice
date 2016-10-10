@@ -6,6 +6,7 @@
 // filter,  [x] -> [x]
 // reduce,  [x] -> x
 
+
 var isFrontend = function (item) {
   return instructor.teaches === "JavaScript";
   // THIS COMMENTED OUT SECTION DOES NOT WORK
@@ -30,7 +31,7 @@ var myMapNoEach = function (items, callback) {
   for (var i = 0; i < items.length; i++) {
     var currentItem = items[i];
     var value = callback(currentItem);
-    result.push(result);
+    result.push(value);
   }
 
   return result;
@@ -72,7 +73,6 @@ var evens = [1,2,3,4,5].filter(function (x) { return x % 2 === 0; });
 
 var evens = [1,2,3,4,5].filter(function (x) { return x % 2 === 0; });
 var squares = evens.map(function (x) { return x * x; });
-
 
 
 // ---------------------------
